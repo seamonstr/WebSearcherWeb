@@ -4,10 +4,28 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>GoogleSearcher Home</title>
+    <title>GoogleSearcher</title>
 </head>
 <body>
-    <p>Home!</p>
-    <img th:src="@{/images/googlelogo_color_272x92dp.png}"/>
+<center><img th:src="@{/images/googlelogo_color_272x92dp.png}"/></center>
+<div th:if="${searchResults != null}">
+
+    <p>Search results:</p>
+    <table>
+        <tr>
+            <td>Result</td>
+            <td>URL</td>
+            <td>Description</td>
+        </tr>
+        <th:block th:each="result: ${searchResults}">
+            <tr>
+                <td><a href="details.html"
+                       th:href="${result.url}"><span th:text="${result.title}">Title</span></a></td>
+                <td th:text="${result.url}">...</td>
+                <td th:text="${result.description}">...</td>
+            </tr>
+        </th:block>
+    </table>
+</div>
 </body>
 </html>
