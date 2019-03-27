@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component("hardcodedSearcher")
 public class HardcodedSearcher implements Searcher {
   private List<SearchResult> results = new ArrayList<>();
 

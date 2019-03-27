@@ -24,11 +24,10 @@ public class HomeController {
   @GetMapping()
   public String get(@RequestParam(name = "search", required = false) String search,
                     Model model) {
-//TODO: Add a test case for this controller.
     // Perform the search, if we need to
     if (search != null) {
       List<SearchResult> searchRes = searcher.search(search);
-      log.error("Search results count: " + searchRes.size());
+      log.debug("Search results count: " + searchRes.size());
       model.addAttribute(SEARCH_RESULTS, searchRes);
     }
 
