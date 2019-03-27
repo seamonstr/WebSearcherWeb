@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -34,18 +35,6 @@ public class HomeControllerTest {
   private Searcher searcher = null;
 
   @Test
-  public void testNoParamGetToRoot() throws Exception {
-    mockMvc.perform(get("/"))
-            .andExpect(status().isOk())
-            .andExpect(view().name("home"))
-            .andExpect(content().string(
-                    containsString("GoogleSearcher")
-            ));
-
-    verify(searcher, never().description("If no param is specified, controller shouldn't search.")).search(any(String.class));
-  }
-
-  @Test
   public void testGetWithBasicSearch() throws Exception {
     when(searcher.search("bob")).then((i) -> hardcodedSearcher.search("bob"));
     mockMvc.perform(get("/?search=bob"))
@@ -57,6 +46,26 @@ public class HomeControllerTest {
                     containsString(hardcodedSearcher.search("whatever").get(0).getTitle())
             ));
     verify(searcher, times(1).description("Should search just once")).search("bob");
+  }
+
+  @Test
+  public void testWithEmptyString() throws Exception {
+    rootPageNoSearch("/?search=");
+  }
+
+  @Test
+  public void testNoParamGetToRoot() throws Exception {
+    rootPageNoSearch("/");
+  }
+
+  private void rootPageNoSearch(String path) throws Exception {
+    mockMvc.perform(get(path))
+            .andExpect(status().isOk())
+            .andExpect(view().name("home"))
+            .andExpect(content().string(
+                    not(containsString("Search results:"))
+            ));
+    verify(searcher, never().description("If no param is specified, controller shouldn't search.")).search(any(String.class));
   }
 }
 

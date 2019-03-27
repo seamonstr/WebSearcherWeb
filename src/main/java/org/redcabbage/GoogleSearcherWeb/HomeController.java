@@ -25,7 +25,7 @@ public class HomeController {
   public String get(@RequestParam(name = "search", required = false) String search,
                     Model model) {
     // Perform the search, if we need to
-    if (search != null) {
+    if (search != null && search.trim().length() > 0) {
       List<SearchResult> searchRes = searcher.search(search);
       log.debug("Search results count: " + searchRes.size());
       model.addAttribute(SEARCH_RESULTS, searchRes);
