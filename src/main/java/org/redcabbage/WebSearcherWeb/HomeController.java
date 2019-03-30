@@ -1,14 +1,13 @@
-package org.redcabbage.GoogleSearcherWeb;
+package org.redcabbage.WebSearcherWeb;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.redcabbage.GoogleSearcherWeb.model.SearchResult;
-import org.redcabbage.GoogleSearcherWeb.model.Searcher;
+import org.redcabbage.WebSearcherWeb.model.SearchResult;
+import org.redcabbage.WebSearcherWeb.model.Searcher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,9 +20,13 @@ public class HomeController {
 
   private final Searcher searcher;
 
+//  @GetMapping()
+//  public String get() {
+//    return "home";
+//  }
+
   @GetMapping()
-  public String get(@RequestParam(name = "search", required = false) String search,
-                    Model model) {
+  public String get(String search, Model model) {
     // Perform the search, if we need to
     if (search != null && search.trim().length() > 0) {
       List<SearchResult> searchRes = searcher.search(search);

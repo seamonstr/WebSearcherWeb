@@ -4,15 +4,14 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>GoogleSearcher</title>
+    <title>WebSearcher</title>
 </head>
 <body>
 <center>
     <img th:src="@{images/googlelogo_color_120x44dp.png}"/>
     <div><form method="get"> Search: <input type="text" name="search"/> </form></div>
 </center>
-<div th:if="${searchResults != null}">
-
+<div th:if="${searchResults != null}" class="searchResults">
     <p>Search results:</p>
     <table>
         <tr>

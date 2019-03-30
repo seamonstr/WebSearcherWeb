@@ -1,11 +1,11 @@
-package org.redcabbage.GoogleSearcherWeb;
+package org.redcabbage.WebSearcherWeb;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-public class GoogleSearcherWebApplicationTests {
+public class WebSearcherWebApplicationTests {
 
 	@Test
 	public void contextLoads() {

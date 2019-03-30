@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo '*******************************************************'
-echo Starting GoogleSearcherWeb service
+echo Starting WebSearcherWeb service
 echo '*******************************************************'
 usage()
 {
@@ -19,4 +19,4 @@ while [ "$1" != "" ]; do
     shift
 done
 
-java $debug -jar /usr/local/GoogleSearcherWeb/service.jar
+java $debug -jar /usr/local/WebSearcherWeb/service.jar

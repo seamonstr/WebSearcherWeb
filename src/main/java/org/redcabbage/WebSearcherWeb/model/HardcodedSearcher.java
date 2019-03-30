@@ -1,4 +1,4 @@
-package org.redcabbage.GoogleSearcherWeb.model;
+package org.redcabbage.WebSearcherWeb.model;
 
 import org.springframework.stereotype.Component;
 
