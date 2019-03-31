@@ -2,8 +2,8 @@ package org.redcabbage.WebSearcherWeb;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.redcabbage.WebSearcherWeb.model.HardcodedSearcher;
-import org.redcabbage.WebSearcherWeb.model.Searcher;
+import org.redcabbage.WebSearcherCommon.model.HardcodedSearcher;
+import org.redcabbage.WebSearcherCommon.model.Searcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
-import static org.mockito.ArgumentMatchers.any;   
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

@@ -43,6 +43,11 @@
       <version>1.18.6</version>
       <optional>true</optional>
     </dependency>
+		<dependency>
+			<groupId>org.redcabbage</groupId>
+			<artifactId>WebSearcherCommon</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
